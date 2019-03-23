@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+        <meta name="viewport" content="initial-scale=1.0">
+        <link rel="icon" href="logo.jpeg" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans|Roboto" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>Mormon</title>
+        
+    </head>
+    <body style="font-family: 'Muli', sans-serif;">
+        <section class="top">
+            <span><img style="width: 70px;height: 10vh" src="logo.jpeg" alt="Mormon"></span>
+            <span style="color: white;position: absolute;font-weight: 600;line-height: 10vh;margin-left: 80vw;font-size: 30px">Mormon</span>
+        </section>
+        <section class="animated slideInLeft top2">
+            <h2 >About Us</h2>
+            <div class="row" style="text-align: justify"> 
+                <h1 style="color:#4e4376;font-size:38px">A high availability log sourcing tool for modern DevOps</h1><br>
+                <p>
+                This blockchain - based system aims at safe installation of electricity connection. In India there is a rule sanctioned by the CEA (Central Electricity Authority) that the nearest live wire should be at least 1.2 metres (minimum for low tension wires) away from the walls of the nearest building, else a meter won't be installed. This product rectifies the possible occurrence of unnecessary meters.
+                <br><br>
+                    <p>
+                1. Creating a system so that electricity inspection officials won't have to manually inspect the horizontal clearance
+                <br></p>
+                <p>
+                2. Using GIS (which has a database of all of the electric poles) , we will be measuring the most safe distance of a building.
+                <br></p>
+                <p>
+                3. If the distance is unsafe, an alert will be sent to the concerned authorities who can deny their connection on the spot
+                <br></p><p>
+                4. Defaulters in the inspection department will be saved in a blockchain for maintaining un-tamperable security                                     <br>
+                This project will thus, help in uprooting corruption and maintaining an organised system for construction department.</p>
+            </div>
+        </section>
+        <section class="wht">
+            <h2 style="color: #00CDAC">Graphs </h2>
+            <a href="#" class="bc">ELK Stack</a><br><br><br>
+        </section>
+        
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+        
+         <script type="text/javascript" src="js/map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWLKdkzzWoP5enV4Ap5SCcQXIqAW6K0-0&callback=initMap" async defer></script>
+        
+        <section class="foot">
+            <div class="row"> 
+                &copy; Angad Sharma, Purushottam Sharma, Dhruv Mittal, Debajit Datta 2019, Code2Create
+            </div>
+        </section>
+        
+        
+        
+        <script>
+        window.onload = function () {
+
+        var dps = []; // dataPoints
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title :{
+                text: "Dynamic Data"
+            },
+            axisY: {
+                includeZero: false
+            },      
+            data: [{
+                type: "line",
+                dataPoints: dps
+            }]
+        });
+
+        var xVal = 0;
+        var yVal = 100; 
+        var updateInterval = 1000;
+        var dataLength = 20; // number of dataPoints visible at any point
+        var pie = 0;
+
+        var updateChart = function (count) {
+        $.ajax({
+            type:"GET",
+            url: "http://139.59.80.112:3000/api/v1/read"
+        }).done(function(data){
+
+            data = JSON.parse(data);
+
+            console.log(data);
+
+            count = count || 1;
+
+            for (var j = 0; j < count; j++) {
+                // yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+                yVal = data.length;
+                dps.push({
+                    x: xVal,
+                    y: yVal// y=new_y- y, pre_y = y/
+                });
+                xVal++;
+
+                if(pie%5==0)
+                {
+                    const Array = data;
+        const Property = "host";
+        const hosts = _.groupBy(Array, Property)
+        console.log(hosts);
+                var chart2 = new CanvasJS.Chart("chartContainer2", {
+                    animationEnabled: true,
+                    title: {
+                        text: "Desktop Search Engine Market Share - 2016"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 240,
+                        yValueFormatString: "##0.00\"%\"",
+                        indexLabel: "{label} {y}",
+                        dataPoints: [
+                            {y: 79.45, label: "Google"},
+                            {y: 7.31, label: "Bing"},
+                            {y: 7.06, label: "Baidu"},
+                            {y: 4.91, label: "Yahoo"},
+                            {y: 1.26, label: "Others"}
+
+                        ]
+                    }]
+                });
+
+                chart2.render();
+            }
+
+
+            pie+=1
+            }
+
+            //
+
+
+
+            //
+
+        })
+            if (dps.length > dataLength) {
+                dps.shift();
+            }
+
+            chart.render();
+        };
+
+        updateChart(dataLength);
+        setInterval(function(){updateChart()}, updateInterval);
+
+        }
+        </script>
+    </body>
+</html>
