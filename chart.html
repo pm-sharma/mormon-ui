@@ -33,7 +33,7 @@ $.ajax({
 
 	data = JSON.parse(data);
 
-	console.log(data);
+	// console.log(data);
 
 	count = count || 1;
 
@@ -48,10 +48,21 @@ $.ajax({
 
 		if(pie%5==0)
 		{
-			const Array = data;
-const Property = "host";
-const hosts = _.groupBy(Array, Property)
-console.log(hosts);
+			dt = {}
+			dp = []
+			for(i=0;i<data.length;i++)
+			{
+				dt[data[i].host] = 0;
+			}
+			for(i=0;i<data.length;i++)
+			{
+				dt[data[i].host] += 1;
+			}
+			index = 0
+			for(key in dt){
+				dp[index++] = {y:dt[key]/data.length*100, label: key};
+			}
+			console.log(dp)
 		var chart2 = new CanvasJS.Chart("chartContainer2", {
 			animationEnabled: true,
 			title: {
@@ -62,15 +73,7 @@ console.log(hosts);
 				startAngle: 240,
 				yValueFormatString: "##0.00\"%\"",
 				indexLabel: "{label} {y}",
-				dataPoints: [
-					{y: 79.45, label: "Google"},
-					{y: 7.31, label: "Bing"},
-					{y: 7.06, label: "Baidu"},
-					{y: 4.91, label: "Yahoo"},
-					{y: 1.26, label: "Others"}
-
-				]
-			}]
+				dataPoints: dp			}]
 		});
 
 		chart2.render();
