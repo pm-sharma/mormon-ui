@@ -1,124 +1,540 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!--        <link rel="stylesheet" type="text/css" href="css/style.css">-->
-        <link rel="stylesheet" type="text/css" href="css/animate.css">
-        <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
-        <meta name="viewport" content="initial-scale=1.0">
-        <link rel="icon" href="logo.jpeg" type="image/x-icon">
-        <link href="https://fonts.googleapis.com/css?family=Muli|Open+Sans|Roboto" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<html>
+<head>
+	<title>Mormon Project</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="icon" href="logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
-        <title>Mormon</title>
-        
-        
-        
-        
-        <style>
-            .topbar{
-                background: #373B44;
-                background: linear-gradient(to right, rgba(15, 34, 77, 0.85),rgba(66, 134, 244, 0.89));
-                background-size: cover;
-                background-position: center;
-                height:10vh;
-                background-attachment: fixed;
-                position: relative;
-                margin-top: 0vw;
-            }
-        </style>
-    </head>
-    <body style="font-family: 'Muli', sans-serif;">
-        
-        
-        
-        
-        <div class="container-fluid">
-            
-            <div class="row topbar">
-                <span><img style="width: 70px;height: 10vh" src="logo.jpeg" alt="Mormon"></span>
-                <span style="color: white;position: absolute;font-weight: 600;line-height: 10vh;margin-left: 80vw;font-size: 30px">Mormon</span>
-            </div>
-            
+    <style type="">
+		header {
+			  background-color: #34262B;
+			  background: url(https://picjumbo.imgix.net/HNCK7769.jpg?q=40&w=1650&sharp=30) no-repeat center center fixed;
+			  background-size: cover;
+			  
+			}
+		    .more-space {
+			  margin-bottom: 20%;
+			}
+			/*li{
+				font-weight: bold;
+				color: #00d2ff;
+			}*/
+			header h1 {
+			  color: #34262B;
+			  font-size: 150px;
+			}
+
+			h1 {
+			  font-family: "Amatic SC", sans-serif;
+			}
+
+			.break1, .break2, .contact h2, .contact h3, p, header h4 {
+			  font-family: "Coming Soon", sans-serif;
+			}
+
+			.social-media {
+			  margin-top: 7%;
+			}
+
+			.intro {
+			  margin-top: 12%;
+			}
+
+			header h4 {
+			  color: #fff;
+			  font-size: 28px;
+			  font-weight: bold;
+			}
+
+			.red {
+			  color: #c1292e;
+			  font-weight: bold;
+			}
+			/**Navbar customs**/
+
+			nav ul li {
+			  font-size: 17px;
+			  font-family: "News Cycle";
+			}
+
+			.about-us a {
+			  font-family: "News Cycle", serif;
+			}
+
+			.navbar-brand {
+			  font-size: 25px;
+			  font-family: "News Cycle";
+			}
+
+			.navbar-default {
+			  background-color: #FDFFFC;
+			  border: 0;
+			}
+
+			.navbar-default .navbar-brand {
+			  margin-left: 5%;
+			  color: #34262B;
+			}
+
+			.navbar-default .navbar-brand:hover,
+			.navbar-default .navbar-brand:focus {
+			  color: #FDFFFC;
+			  background-color: transparent;
+			}
+
+			.navbar-default .navbar-text {
+			  color: #210A2A;
+			}
+
+			.navbar-default .navbar-nav > li > a {
+			  color: #210A2A;
+			}
+
+			.navbar-default .navbar-nav > li > a:hover,
+			.navbar-default .navbar-nav > li > a:focus {
+			  color: #F9F2F6;
+			  background-color: transparent;
+			  border-bottom: 1px solid #F9F2F6;
+			}
+
+			.navbar-default .navbar-nav > .active > a,
+			.navbar-default .navbar-nav > .active > a:hover,
+			.navbar-default .navbar-nav > .active > a:focus {
+			  color: #F9F2F6;
+			  background-color: #e7e7e7;
+			}
+
+			.navbar-default .navbar-nav > .disabled > a,
+			.navbar-default .navbar-nav > .disabled > a:hover,
+			.navbar-default .navbar-nav > .disabled > a:focus {
+			  color: #F9F2F6;
+			  background-color: transparent;
+			}
+
+			.navbar-default .navbar-toggle {
+			  border-color: #ddd;
+			}
+
+			.navbar-default .navbar-toggle:hover,
+			.navbar-default .navbar-toggle:focus {
+			  background-color: #ddd;
+			}
+
+			.navbar-default .navbar-toggle .icon-bar {
+			  background-color: #888;
+			}
+
+			.navbar-default .navbar-collapse,
+			.navbar-default .navbar-form {
+			  border-color: #e7e7e7;
+			}
+
+			.navbar-default .navbar-nav > .open > a,
+			.navbar-default .navbar-nav > .open > a:hover,
+			.navbar-default .navbar-nav > .open > a:focus {
+			  color: #555;
+			  background-color: #e7e7e7;
+			}
+
+			.navbar-inner {
+			  background: rgba(0, 0, 0, 0);
+			}
+			/**Navbar customs end**/
+			/***Services***/
+
+			.works {
+			}
+
+			.tabs {
+			  background-color: #F26430;
+			  border: 1px solid #210A20;
+			}
+
+			.works p {
+			  margin-top: 10%;
+			}
+
+			.works h1 {
+			  font-size: 100px;
+			  margin-top: 7%;
+			  margin-bottom: 5%;
+			}
+
+			.thumbnail {
+			  margin-bottom: 12%
+			}
+
+			.thumbnail:hover {
+			  -webkit-box-shadow: 2px 2px 2px 1px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+			  -moz-box-shadow:    2px 2px 2px 1px #ccc;  /* Firefox 3.5 - 3.6 */
+			  box-shadow:         2px 2px 2px 1px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+			}
+
+			.space {
+			  margin-bottom: 10%;
+			}
+
+
+			.break1 {
+			  /*background: url("devops.jpeg") center center fixed;*/
+			  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url("devops.jpeg");
+			  background-size: cover;
+			}
+
+			.break2 {
+			  background: url(https://unsplash.imgix.net/photo-1430760814266-9c81759e5e55?fit=crop&fm=jpg&h=750&q=75&w=1050) center center fixed;
+			  -webkit-background-size: cover;
+			  -moz-background-size: cover;
+			  -o-background-size: cover;
+			  background-size: cover;
+			}
+
+			.break2 h3 {
+			  color: #fff;
+			  font-size: 70px;
+			  margin-top: 15%;
+			  margin-bottom: 15%;
+			}
+
+			.break1 h3 {
+			  color: #fff;
+			  font-size: 70px;
+			  margin-top: 15%;
+			  margin-bottom: 15%;
+			}
+
+			/**End of Services stylus***/
+			/***About us****/
+
+			.about-us {
+			  background-color: #34262B;
+			}
+
+			.about-us h1 {
+			  color: #C1292E;
+			  font-size: 100px;
+			  margin-top: 7%;
+			}
+
+			.about-us-p {
+			  font-size: 20px;
+			  color: #FDFFFC;
+			  margin-left: 12%;
+			  margin-right: 12%;
+			  margin-top: 7%;
+			  margin-bottom: 10%;
+			}
+
+			.descript {
+			  margin-bottom: 15%;
+			}
+
+			.team {
+			  margin-top: 25%;
+			  border: 1px solid #FDFFFC;
+			  padding: 20px 50px 20px 50px;
+			  text-decoration: none;
+			  color: #F9F2F6;
+			}
+
+			.team:hover {
+			  text-decoration: none;
+			  background: rgba(193, 41, 46, 0.4);
+			  color: #F9F2F6;
+			}
+			/* Contact */
+
+			.contact {
+			  background-color: #c1292e;
+			}
+
+			.contact h1 {
+			  font-size: 100px;
+			  margin-top: 7%;
+			}
+
+			.social-media-row-1 {
+			  margin-top: 10%;
+			}
+
+			.contact i {
+			  font-size: 1000%;
+			  padding: 20% 0% 20% 0%;
+			}
+
+			.contact .icon {
+			  border: 1px solid black;
+			}
+
+			.icon a {
+			  color: #fff;
+			}
+
+			.icon:hover {
+			  background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			/* Footer */
+
+			footer {
+			  background-color: #34292b;
+			}
+
+			.go-up-icon i {
+			  color: white;
+			  font-size: 400%;
+			  margin-top: 15%;
+			  border: 1px solid white;
+			  padding: 2% 4% 3% 4%;
+			  border-radius: 10%;
+			}
+
+			.go-up-icon i:hover {
+			  background-color: rgba(100, 100, 100, 0.3);
+			}
+
+			footer p {
+			  color: white;
+			  padding-top: 37%;
+			}
+
+			@media screen and (max-width: 500px) {
+			  header h1, .about-us h1, .works h1, .contact h1 {
+			    font-size: 50px;
+			    margin-bottom: 15%;
+			  }
+			    
+			  header h4 {
+			    font-size: 20px;
+			    margin-bottom: 15%;
+			  }
+			  
+			  .about-us-p {
+			    font-size: 14px;
+			  }
+			  
+			  .contact i {
+			    font-size: 500%;
+			  }
+			  
+			  .intro {
+			  margin-top: 50%;
+			  }
+			}
+			.top1,.top2{
+				background: #373B44;
+				background: linear-gradient(to right,  #373B44, #4286f4);
+				/*width: 100vw;*/
+
+			}
+
+			@media (min-width: 800px){
+				.logo{
+					margin-left: -15px;
+				}
+				.x1{
+					padding-left: -15px;
+				}
+				.lesspad{
+					/*margin-left: -150px;*/
+				}
+			}
+			html{
+				scroll-behavior: smooth;
+			}
+			body{
+				/*padding: 0;*/
+			}
+			.foot {
+			    width:100%;
+			    text-align: center;
+			    background: linear-gradient(rgba(198, 201, 222, 0.5),rgba(198, 201, 222, 0.7));
+			    margin: 0vw;
+			    padding-bottom: 8vh;
+			    padding-top: 8vh;
+			}
+			.row {
+			    width: 70vw;
+			    margin-left: 15vw;
+			}
+	</style>
+</head>
+
+
+<body>
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top navsbar-inner">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header top1" style="background: #373B44;background: linear-gradient(to right,  #373B44, #4286f4);">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="logo" href="#"><img style="height: 10vh;width: 70px;" src="logo.jpeg"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse top2" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right x1">
+            <li class="lesspad"><a href="#home">Mormon</a></li>
+            <li class="lesspad"><a href="#about">About the project</a></li>
+            <li class="lesspad"><a href="#works">Know more</a></li>
+            <li class="lesspad"><a href="#contact">Github Repo</a></li>
+          </ul>
+
+
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <a name="home"></a>
+    <div class="container-fluid">
+      <div class="more-space row">
+        <div class="col-md-12">
+          <div class="text-center intro">
+          	<br><br><br>	
+            <h1 style="margin-top: 30px">Hello there,</h1>
+            <h4 class="red" style="color: #000046">A high availability log sourcing tool for modern DevOps.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <!----ABOUT US---->
+
+  <div class="about-us" id="startchange">
+    <a name="about"></a>
+    <div class="container-fluid">
+      <div class="row text-center">
+        <div class="descript col-xs-12 col-sm-12 col-md-12">
+          <!-- <h2 class="red">ABOUT THE PROJECT</h2> --><br><br>
+          <p class="about-us-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <a href="#" class="team">KNOW MORE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break2 container-fluid text-center">
+    <h3 style="color: black">We develop the things!</h3>
+  </div>
+
+  <!----SERVICES---->
+  <div class="works">
+    <a name="works"></a>
+    <div class="container-fluid">
+
+      <div class="row" style="margin-top: -100px">
+        <div class="text-center col-xs-12 col-sm-12 col-md-12">
+          <!-- <h3 class="red" style="font-size: 4em;font-weight: 600">Our implementation</h3> -->
+        </div>
+      </div>
+
+	<hr style="width: 80%;text-align: center;height: 5px;">
+
+	<div class="row">
+		<!-- <div class="col-lg-0 col-sm-12">
+		</div> -->
+		<div class="col-lg-12 col-sm-12">
+		<script src="https://gist.github.com/angadsharma1016/86f952540a5ccba1a9e41bdfd6b71292.js"></script>
+		</div>
+	</div>
+
+
+    </div>
+  </div>
+
+  <div class="break1 container-fluid text-center">
+    <h3>Github Repo!</h3>
+  </div>
+
+  <div class="contact text-center" style="background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
+    <a name="contact"></a>
+    <div class="container-fluid">
+
+      <div class="row" style="color: ">
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+          <h1>CONTACT</h3>
+        </div>
+      </div>
+      
+      <div class="row">
+      
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h2>Connect with us at: </h2>
+          <p>..@gmail.com</p>
+          <br/>
+          <br/>
+          <h3>Or, you could get in touch with us on social media</h3>
         </div>
         
-        <div class="container-fluid">
-            <div class="row">
-                
-                
-                
-            </div>
+      </div>
+     
+      
+      <div class="row" style="">
+      	<div class="col-lg-3"></div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <a href="#"><i class="fa fa-github"></i></a>
         </div>
         
-        
-<!--
-        
-        <section class="top">
-            <span><img style="width: 70px;height: 10vh" src="logo.jpeg" alt="Mormon"></span>
-            <span style="color: white;position: absolute;font-weight: 600;line-height: 10vh;margin-left: 80vw;font-size: 30px">Mormon</span>
-        </section>
-        <section class="animated slideInLeft top2">
-            <h2 >About Us</h2>
-            <div class="row" style="text-align: justify"> 
-                <h1 style="color:#4e4376;font-size:38px">A high availability log sourcing tool for modern DevOps</h1><br>
-                <p>
-                This blockchain - based system aims at safe installation of electricity connection. In India there is a rule sanctioned by the CEA (Central Electricity Authority) that the nearest live wire should be at least 1.2 metres (minimum for low tension wires) away from the walls of the nearest building, else a meter won't be installed. This product rectifies the possible occurrence of unnecessary meters.
-                <br><br>
-                    <p>
-                1. Creating a system so that electricity inspection officials won't have to manually inspect the horizontal clearance
-                <br></p>
-                <p>
-                2. Using GIS (which has a database of all of the electric poles) , we will be measuring the most safe distance of a building.
-                <br></p>
-                <p>
-                3. If the distance is unsafe, an alert will be sent to the concerned authorities who can deny their connection on the spot
-                <br></p><p>
-                4. Defaulters in the inspection department will be saved in a blockchain for maintaining un-tamperable security                                     <br>
-                This project will thus, help in uprooting corruption and maintaining an organised system for construction department.</p>
-            </div>
-        </section>
-        <section class="wht">
-            <h2 style="color: #00CDAC">Graphs </h2>
-            <a href="#" class="bc">ELK Stack</a><br><br><br>
-        </section>
-        
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-        <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        
--->
-        
-<!--
-         <script type="text/javascript" src="js/map.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWLKdkzzWoP5enV4Ap5SCcQXIqAW6K0-0&callback=initMap" async defer></script>
-        
-        
-        
--->
-        
-       
-        
-        
-        
-        
-<!--
-        
-        <section class="foot">
+      </div>
+      
+      
+      
+    </div>
+    
+  </div>
+
+<footer>
+
+  <div class="container-fluid">
+      <section class="foot">
+      		<h2>Code With &#10084; by</h2>
             <div class="row"> 
+
                 &copy; Angad Sharma, Purushottam Sharma, Dhruv Mittal, Debajit Datta 2019, Code2Create
             </div>
-        </section>
--->
-        
-        
-       
-    </body>
+        </section
+  </div>
+
+</footer>
+
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+  var scroll_start = 0;
+  var startchange = $('#startchange');
+  var offset = startchange.offset();
+  if (startchange.length) {
+    $(document).scroll(function() {
+      scroll_start = $(this).scrollTop();
+      if (scroll_start > offset.top) {
+        $(".navbar-default").css('background-color', '#c1292e');
+      } else {
+        $('.navbar-default').css('background-color', 'transparent');
+      }
+    });
+  }
+});
+</script>
+
+
+
 </html>
