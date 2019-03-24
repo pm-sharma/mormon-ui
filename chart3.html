@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+window.onload = function () {
+    
+    graph1 = []
+    graph2 = []
+    graph3 = []
+    graph4 = []
+    ind = 0
+    
+    for(x=100;x<=20000;x+=100){
+        $.ajax({
+            type:"POST",
+            url:"http://139.59.80.112:3000/api/v1/benchmark",
+            data: JSON.stringify({
+                "calls": x
+            })
+        }).done(function(res){
+            res = JSON.parse(res);
+            graph1[ind]={x:ind*100+100, y:res["publishing-time"]/1000};
+            graph2[ind]={x:ind*100+100, y:res["proto-marshal-time"]};
+            graph3[ind]={x:ind*100+100, y:res["JSON-decoding-time"]};
+            graph4[ind++]={x:ind*100+100, y:res["nats-conn-time"]/1000};
+        })
+    }
+    
+    console.log(graph1,graph2,graph3,graph4)
+    
+    function updateChart(){
+        var chart = new CanvasJS.Chart("chartContainer", {
+        title:{
+            text: "Benchmarks"
+        },
+        axisY:{
+            title: "time",
+            lineColor: "#C24642",
+            tickColor: "#C24642",
+            labelFontColor: "#C24642",
+            titleFontColor: "#C24642",
+            suffix: "k"
+        },
+        toolTip: {
+            shared: true
+        },
+        legend: {
+            cursor: "pointer",
+            itemclick: toggleDataSeries
+        },
+        data: [{
+            type: "line",
+            name: "Publishing Time",
+            color: "#369EAD",
+            showInLegend: true,
+            axisYIndex: 1,
+            dataPoints: graph1
+        },
+        {
+            type: "line",
+            name: "Proto Marshal Time",
+            color: "#C24642",
+            axisYIndex: 0,
+            showInLegend: true,
+            dataPoints: graph2
+        },
+        {
+            type: "line",
+            name: "JSON Decoding Time",
+            color: "#325c37",
+            axisYType: "secondary",
+            showInLegend: true,
+            dataPoints: graph3
+        },
+        {
+            type: "line",
+            name: "Nats Conn Time",
+            color: "#7F6084",
+            axisYType: "secondary",
+            showInLegend: true,
+            dataPoints: graph4
+        }]
+    });
+    chart.render();
+    }
+    
+    setInterval(function(){
+        updateChart()
+    }, 1000);
+	
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	e.chart.render();
+}
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
