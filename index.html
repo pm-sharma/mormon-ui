@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Mormon Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -9,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="icon" href="logo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
     <style type="">
@@ -16,7 +19,6 @@
 			  background-color: #34262B;
 			  background: url(https://picjumbo.imgix.net/HNCK7769.jpg?q=40&w=1650&sharp=30) no-repeat center center fixed;
 			  background-size: cover;
-			  
 			}
 		    .more-space {
 			  margin-bottom: 20%;
@@ -363,14 +365,156 @@
 			    width: 70vw;
 			    margin-left: 15vw;
 			}
+
+			.fader{
+			    height: 100vh;
+			    width: 100vw;
+			    position: fixed;
+			    top: 0px;
+			    left: 0px;
+			    background: #e5e5d8;
+			    opacity: 0.9;
+			    z-index: 99998;
+			    display: none;
+			}
+
+			.modal-box{
+			    height: 90vh;
+			    /*width: 80vw;*/
+			    background: #ffffff;
+			    /*color: rgb(81, 213, 191);*/
+			    border-radius: 10px;
+			    position: fixed;
+			    top:50%;
+			    left: 50%;
+			    transform: translate(-50%,-50%);
+			    z-index: 99999;
+			    overflow: scroll;
+			    display: none;
+			}
+
+			.modal-top-bar{
+			    height: 60px;
+			    width: 100%;
+			    border-radius:10px;
+			    padding-left: 20px;
+			    padding-top: 20px;
+			}
+
+			#back{
+			    height: 40px;
+			}
+
+			.terms{
+			    display: none;
+			    width: 100%;
+			    height: auto;
+			}
+
+
+			#abouter{
+			    width: 100%;
+			    padding-top: 20px;
+			    padding-left: 20px;
+			    padding-right: 20px;
+			}
+
+			#abouter b{
+			    font-size: 1.2em;
+			}
+
+			#abouter i{
+			    font-size: 1em;
+			}
+
+			#abouter div{
+			    padding-bottom: 30px;
+
+			}
+
+			.button {
+			  display: inline-block;
+			  border-radius: 4px;
+			  background-color: #f4511e;
+			  border: none;
+			  color: #FFFFFF;
+			  text-align: center;
+			  font-size: 28px;
+			  padding: 20px;
+			  width: 200px;
+			  transition: all 0.5s;
+			  cursor: pointer;
+			  margin: 5px;
+			}
+
+			.button span {
+			  cursor: pointer;
+			  display: inline-block;
+			  position: relative;
+			  transition: 0.5s;
+			}
+
+			.button span:after {
+			  content: '\00bb';
+			  position: absolute;
+			  opacity: 0;
+			  top: 0;
+			  right: -20px;
+			  transition: 0.5s;
+			}
+
+			.button:hover span {
+			  padding-right: 25px;
+			}
+
+			.button:hover span:after {
+			  opacity: 1;
+			  right: 0;
+			}
+			
 	</style>
 </head>
 
 
-<body>
+<body style="font-family: 'Muli', sans-serif;">
+
+<div class="fader"></div>
+
+<div class="modal-box">
+
+    <div class="modal-top-bar">
+
+        <a> <img id="back" src="previous.svg"></a>
+
+    </div>
+
+    <div class="faq">
+        <div id="abouter">
+			<div class="container-fluid">
+				<div class="row">
+				<form action="http://139.59.80.112:3000/api/v1/publish" method="POST" name="publishData" id="publishData">
+						<label for="userid" class="w3-text-blue"><b>User_id</b></label><br>
+					    <input class="w3-input w3-border" type="text" placeholder="Enter id" name="id" id="pb_id" required>
+					    <br>
+					    <label class="w3-text-blue" for="log"><b>Enter Log</b></label><br>
+					    <input class="w3-input w3-border" id="pb_log" type="string" placeholder="Enter Log" name="log" required>
+					    <br>
+					    <label class="w3-text-blue" for="host"><b>Enter Host</b></label><br>
+					    <input class="w3-input w3-border" id="pb_host" type="string" placeholder="Enter Host" name="host" required><br>
+					    <hr>
+					    <button type="submit" class="publishbtn button" id="pb" onclick="sendPublishData" style="vertical-align:middle"><span>Publish</span></button>
+				</form>
+				</div>
+			</div>
+        </div>
+    </div>
+
+</div>
+
+
   <header>
     <nav class="navbar navbar-default navbar-fixed-top navsbar-inner">
-      <div class="container-fluid">
+      <div class="container-fluid" style="width: 101.5%">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header top1" style="background: #373B44;background: linear-gradient(to right,  #373B44, #4286f4);">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -388,7 +532,7 @@
             <li class="lesspad"><a href="#home">Mormon</a></li>
             <li class="lesspad"><a href="#about">About the project</a></li>
             <li class="lesspad"><a href="#works">Know more</a></li>
-            <li class="lesspad"><a href="#contact">Github Repo</a></li>
+            <li class="lesspad" style="padding-left: -20px"><a id="pubBtn" href="#">Publish Data &nbsp;&nbsp;</a></li>
           </ul>
 
 
@@ -446,25 +590,20 @@
 	<hr style="width: 80%;text-align: center;height: 5px;">
 
 	<div class="row">
-		<!-- <div class="col-lg-0 col-sm-12">
-		</div> -->
 		<div class="col-lg-12 col-sm-12">
 		<script src="https://gist.github.com/angadsharma1016/86f952540a5ccba1a9e41bdfd6b71292.js"></script>
 		</div>
 	</div>
-
-
     </div>
   </div>
+
+
 
   <div class="break1 container-fluid text-center">
     <h3>Github Repo!</h3>
   </div>
 
-  <div class="contact text-center" style="background: #8e9eab;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-">
+  <div class="contact text-center" style="background: #8e9eab;background: linear-gradient(to right, #eef2f3, #8e9eab);">
     <a name="contact"></a>
     <div class="container-fluid">
 
@@ -488,7 +627,7 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
      
       
       <div class="row" style="">
-      	<div class="col-lg-3"></div>
+      	<div class="col-lg-3 col-sm-3 col-md-3"></div>
         <div class="col-xs-6 col-sm-6 col-md-6">
           <a href="#"><i class="fa fa-github"></i></a>
         </div>
@@ -533,7 +672,48 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
     });
   }
 });
+
+
+$('#pb').on("click", function(e){
+	e.preventDefault()
+    var obj = {
+    	id : $("#pb_id").val(),
+    	host : $("#pb_host").val(),
+    	log : $("#pb_log").val()
+    }
+    console.log(obj)
+    $.ajax({
+        type: 'POST',
+        url: 'http://139.59.80.112:3000/api/v1/publish',
+        //dataType: 'json',
+        data: JSON.stringify(obj),
+        //headers: [{content-Type : 'application/json'}],
+        success: function(data) {
+            alert(data)
+        }
+    });
+})
+
+
+    $(document).ready(function(){
+        $('#back').click(function(){
+            $('.fader').fadeOut(400);
+            $('.modal-box').fadeOut(400);
+            $('.PublishData').fadeOut(400);
+        });
+        $('#pubBtn').click(function(){
+            $('.fader').fadeIn(400);
+            $('.modal-box').fadeIn(400);
+            $('.publishData').fadeIn(400);
+        });
+
+
+    })
+
+
 </script>
+
+
 
 
 
