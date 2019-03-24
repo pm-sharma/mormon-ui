@@ -492,7 +492,7 @@
         <div id="abouter">
 			<div class="container-fluid">
 				<div class="row">
-				<form action="http://139.59.80.112:3000/api/v1/publish" method="POST" name="publishData" id="publishData">
+				<form action="http://localhost:3000/api/v1/publish" method="POST" name="publishData" id="publishData">
 						<label for="userid" class="w3-text-blue"><b>User_id</b></label><br>
 					    <input class="w3-input w3-border" type="text" placeholder="Enter id" name="id" id="pb_id" required>
 					    <br>
@@ -701,7 +701,7 @@ $('#pb').on("click", function(e){
     console.log(obj)
     $.ajax({
         type: 'POST',
-        url: 'http://139.59.80.112:3000/api/v1/publish',
+        url: 'http://localhost:3000/api/v1/publish',
         //dataType: 'json',
         data: JSON.stringify(obj),
         //headers: [{content-Type : 'application/json'}],
@@ -755,7 +755,7 @@ var pie = 0;
 var updateChart = function (count) {
 $.ajax({
 	type:"GET",
-	url: "http://139.59.80.112:3000/api/v1/read"
+	url: "http://localhost:3000/api/v1/read"
 }).done(function(res){
 	res = JSON.parse(res);
 	count = count || 1;
@@ -849,7 +849,7 @@ setInterval(function(){updateChart()}, updateInterval);
     for(x=100;x<=20000;x+=100){
         $.ajax({
             type:"POST",
-            url:"http://139.59.80.112:3000/api/v1/benchmark",
+            url:"http://localhost:3000/api/v1/benchmark",
             data: JSON.stringify({
                 "calls": x
             })

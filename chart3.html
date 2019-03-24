@@ -14,7 +14,7 @@ window.onload = function () {
     for(x=100;x<=20000;x+=100){
         $.ajax({
             type:"POST",
-            url:"http://139.59.80.112:3000/api/v1/benchmark",
+            url:"http://localhost:3000/api/v1/benchmark",
             data: JSON.stringify({
                 "calls": x
             })
