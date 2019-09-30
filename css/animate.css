@@ -5,7 +5,7 @@
  * Version - 3.7.0
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  *
- * Copyright (c) 2018 Daniel Eden
+ * Copyright (c) 2019 Daniel Eden
  */
 
 @-webkit-keyframes bounce {
@@ -3095,15 +3095,15 @@
 
   60% {
     opacity: 1;
-    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    
     transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
-    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
   }
 }
 
 .zoomInUp {
-  -webkit-animation-name: zoomInUp;
+ 
   animation-name: zoomInUp;
 }
 
@@ -3114,7 +3114,7 @@
 
   50% {
     opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+   
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
@@ -3130,7 +3130,6 @@
 
   50% {
     opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
     transform: scale3d(0.3, 0.3, 0.3);
   }
 
@@ -3409,14 +3408,13 @@
   }
 
   to {
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes slideInUp {
   from {
-    -webkit-transform: translate3d(0, 100%, 0);
+    
     transform: translate3d(0, 100%, 0);
     visibility: visible;
   }
